@@ -4,9 +4,9 @@ import pathlib
 import pandas as pd
 import yfinance as yf
     
-def update_records(symbol):
+def update_records(symbol, interval='1d'):
 
-    path = f'pkl/{symbol}.pkl'
+    path = f'pkl/{symbol}-{interval}.pkl'
 
     if os.path.isfile(path):
 
@@ -18,7 +18,7 @@ def update_records(symbol):
 
         print(f'Recent record date: {recent_record_date}')
 
-        new_records = yf.download(tickers=symbol, start=recent_record_date, progress=False)        
+        new_records = yf.download(tickers=symbol, interval=interval, start=recent_record_date, progress=False)        
 
         df = df[df.index < recent_record_date]
 
@@ -32,7 +32,7 @@ def update_records(symbol):
 
         pathlib.Path('pkl').mkdir(parents=True, exist_ok=True)
     
-        df = yf.download(tickers=symbol, progress=False)
+        df = yf.download(tickers=symbol, interval=interval, progress=False)
         
         df.to_pickle(path)
 
