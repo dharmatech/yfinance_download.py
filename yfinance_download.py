@@ -3,12 +3,6 @@ import os
 import pathlib
 import pandas as pd
 import yfinance as yf
-
-# symbol = '^GSPC'
-
-# def download_records(symbol, start_date):
-
-#     yf.download(tickers=symbol, start=start_date, progress=False)
     
 def update_records(symbol):
 
@@ -43,9 +37,3 @@ def update_records(symbol):
         df.to_pickle(path)
 
         return df
-
-
-
-
-
-
