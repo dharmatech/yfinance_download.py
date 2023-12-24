@@ -21,4 +21,4 @@ import yfinance_download
 df = yfinance_download.update_records('^GSPC')
 ```
 
-you should have a file 'pkl/^GSPC-1d.pkl' which stores the serialized data.
+you should have a file `pkl/^GSPC-1d.pkl` which stores the serialized data.
